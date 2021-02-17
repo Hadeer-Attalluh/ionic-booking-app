@@ -1,12 +1,42 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/places/offers" margin></ion-back-button>
     </ion-buttons>
-    <ion-title color="primary">offer-form</ion-title>
+    <ion-title>{{ editMode === true ? originalOffer?.title : "New Offer" }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-sm="8" offsite-sm="2">
+        <form [formGroup]="offerForm" (ngSubmit)="submitForm()">
+          <ion-item>
+            <ion-label position="floating" [ngClass]="{'text-mute': editMode}">Title</ion-label>
+            <ion-input formControlName="title" type="text"></ion-input>
+          </ion-item>
 
+          <ion-item>
+            <ion-label position="floating">Description</ion-label>
+            <ion-textarea formControlName="description" rows="3"></ion-textarea>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Price</ion-label>
+            <ion-input formControlName="price" type="number"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Image URL</ion-label>
+            <ion-input formControlName="imageUrl" type="text"></ion-input>
+          </ion-item>
+
+          <ion-button type="submit" slot="end" color="primary">Save</ion-button>
+          <ion-button type="button" slot="start" color="secondary" (click)="goBack()">Cancel</ion-button>
+
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

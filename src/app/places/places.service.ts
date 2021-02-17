@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { Place } from './_models/place';
 
 @Injectable({
@@ -32,5 +32,14 @@ export class PlacesService {
 
   getDiscoverPlaces(): Observable<Place[]> {
     return of([...this.places]);
+  }
+
+  getOfferPlaces(): Observable<Place[]> {
+    return of([...this.places]);
+  }
+
+  getOfferById(offerId: string): Observable<Place> {
+    const place = this.places.find(p => p.id === offerId);
+    return place ? of({ ...place }) : throwError(new Error());
   }
 }

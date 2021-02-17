@@ -17,4 +17,4 @@ import { OffersPage } from './offers.page';
   ],
   declarations: [OffersPage]
 })
-export class OffersPageModule {}
+export class OffersPageModule { }

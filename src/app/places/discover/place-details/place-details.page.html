@@ -3,12 +3,34 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/places/discover"></ion-back-button>
     </ion-buttons>
-    <ion-title>place-details</ion-title>
+    <ion-title>{{place.title}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-button (click)="bookPlace()">
-    book
-  </ion-button>
+  <ion-row>
+    <ion-col text-center size="12" size-sm="8" offset-sm="2">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>
+            {{ place.title }}
+          </ion-card-title>
+          <ion-card-subtitle>
+            {{ place.price | currency }} / Night
+          </ion-card-subtitle>
+        </ion-card-header>
+        <ion-img [src]="place.imageUrl"></ion-img>
+        <ion-card-content>
+          <p>
+            {{place.description}}
+          </p>
+        </ion-card-content>
+        <div text-right>
+          <ion-button fill="clear" color="primary" (click)="bookPlace()">Book
+          </ion-button>
+        </div>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
 </ion-content>

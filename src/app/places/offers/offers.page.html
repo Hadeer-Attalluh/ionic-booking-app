@@ -22,7 +22,7 @@
               <h2>{{offer.title}}</h2>
               <p>{{offer.price | currency }} / Night</p>
             </ion-label>
-            <ion-button color="primary" slot="end">
+            <ion-button color="primary" fill="clear" slot="end" [routerLink]="['/','places','offers',offer.id,'edit']">
               <ion-icon name="create-outline"></ion-icon>
             </ion-button>
           </ion-item>
