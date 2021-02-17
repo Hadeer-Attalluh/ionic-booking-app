@@ -9,12 +9,16 @@ const routes: Routes = [
     component: OffersPage
   },
   {
-    path: 'offer-form',
-    loadChildren: () => import('./offer-form/offer-form.module').then( m => m.OfferFormPageModule)
+    path: 'create',
+    loadChildren: () => import('./offer-form/offer-form.module').then(m => m.OfferFormPageModule)
   },
   {
-    path: 'offer-bookings',
-    loadChildren: () => import('./offer-bookings/offer-bookings.module').then( m => m.OfferBookingsPageModule)
+    path: ':offerId/edit',
+    loadChildren: () => import('./offer-form/offer-form.module').then(m => m.OfferFormPageModule),
+  },
+  {
+    path: ':offerId/bookings',
+    loadChildren: () => import('./offer-bookings/offer-bookings.module').then(m => m.OfferBookingsPageModule)
   }
 ];
 
@@ -22,4 +26,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class OffersPageRoutingModule {}
+export class OffersPageRoutingModule { }

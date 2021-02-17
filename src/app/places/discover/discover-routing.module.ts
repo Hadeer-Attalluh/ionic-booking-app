@@ -9,8 +9,8 @@ const routes: Routes = [
     component: DiscoverPage
   },
   {
-    path: 'place-details',
-    loadChildren: () => import('./place-details/place-details.module').then( m => m.PlaceDetailsPageModule)
+    path: ':placeId',
+    loadChildren: () => import('./place-details/place-details.module').then(m => m.PlaceDetailsPageModule)
   }
 ];
 
@@ -18,4 +18,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class DiscoverPageRoutingModule {}
+export class DiscoverPageRoutingModule { }
